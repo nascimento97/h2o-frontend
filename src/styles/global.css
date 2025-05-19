@@ -1,0 +1,65 @@
+/* Estilos globais */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.input {
+  padding: 10px;
+  margin: 5px 0;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.radio-label {
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+.radio-label input {
+  margin-right: 10px;
+}
+
+.table {
+  width: 100%;
+  max-width: 500px;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.table-cell {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.table-cell:first-child {
+  font-weight: bold;
+  width: 50%;
+}

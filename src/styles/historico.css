@@ -1,0 +1,22 @@
+.historico-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.historico-container h1 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.historico-container h2 {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.registro-historico {
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 500px;
+}

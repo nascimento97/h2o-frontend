@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Cadastro from './pages/cadastro';
+import Login from './pages/login';
+import Registro from './pages/registro';
+import Historico from './pages/historico';
+import './styles/global.css';
 
-function App() {
+const App = () => {
+  const [usuario, setUsuario] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/cadastro" element={<Cadastro />} />
+        <Route
+          path="/login"
+          element={<Login onLogin={(user) => setUsuario(user)} />}
+        />
+        <Route
+          path="/registro"
+          element={usuario ? <Registro usuario={usuario} /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/historico"
+          element={usuario ? <Historico usuario={usuario} /> : <Navigate to="/login" />}
+        />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
