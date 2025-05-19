@@ -1,70 +1,129 @@
-# Getting Started with Create React App
+# Documentação do Projeto h2o-frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📋 Visão Geral
+Aplicativo web para controle de consumo de água, desenvolvido em React.js. Permite cadastro de usuários, registro de consumo diário e visualização de histórico.
 
-## Available Scripts
+## 🚀 Como Executar
 
-In the project directory, you can run:
+### Pré-requisitos
+- Node.js (v14+)
+- npm (v6+)
 
-### `npm start`
+### Instalação
+```bash
+git clone [seu-repositorio]
+cd h2o-frontend
+npm install
+npm start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+O aplicativo estará disponível em: `http://localhost:3000`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📦 Dependências Principais
+```json
+"dependencies": {
+  "react": "^18.2.0",
+  "react-dom": "^18.2.0",
+  "react-router-dom": "^6.3.0",
+  "react-scripts": "5.0.1"
+}
+```
 
-### `npm test`
+## 🌐 Rotas Disponíveis
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Rota          | Descrição                              | Acesso       |
+|---------------|----------------------------------------|-------------|
+| `/`           | Redireciona para `/login`              | Público     |
+| `/login`      | Tela de autenticação                   | Público     |
+| `/cadastro`   | Tela de registro de novos usuários     | Público     |
+| `/registro`   | Tela principal de consumo de água      | Privado     |
+| `/historico`  | Visualização do histórico de consumo   | Privado     |
 
-### `npm run build`
+## 🖼️ Telas do Sistema
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Tela de Cadastro (`/cadastro`)
+![Tela de Cadastro](https://via.placeholder.com/400x600?text=Tela+de+Cadastro)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Componentes:**
+- Formulário com 2 campos:
+  - Nome do usuário (texto)
+  - Peso (número)
+- Botão "Confirmar Cadastro"
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Comportamento:**
+- Armazena dados no `localStorage`
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 2. Tela de Login (`/login`)
+![Tela de Login](https://via.placeholder.com/400x600?text=Tela+de+Login)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Componentes:**
+- Campo para nome de usuário
+- Botão "Login"
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Comportamento:**
+- Verifica usuário no `localStorage`
+- Redireciona para `/registro` após login
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+### 3. Tela de Registro (`/registro`)
+![Tela de Registro](https://via.placeholder.com/400x600?text=Tela+de+Registro)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Componentes:**
+- Seletor de dose (200ml, 350ml, 500ml)
+- Botão "Registrar"
+- Tabela com:
+  - Meta diária
+  - Consumo atual
+  - Progresso
+- Botão "Histórico"
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Lógica:**
+- Calcula meta baseada no peso (35ml/kg)
+- Armazena registros no `localStorage`
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 4. Tela de Histórico (`/historico`)
+![Tela de Histórico](https://via.placeholder.com/400x600?text=Tela+de+Historico)
 
-### Analyzing the Bundle Size
+**Componentes:**
+- Título com nome do usuário
+- Tabelas com registros diários:
+  - Data
+  - Meta do dia
+  - Consumo
+  - Status (atingiu meta?)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 🛠️ Estrutura do Projeto
+```
+src/
+├── components/    # Componentes reutilizáveis
+│   ├── Button.js
+│   ├── Input.js
+│   ├── RadioGroup.js
+│   └── Table.js
+├── pages/         # Telas do aplicativo
+│   ├── Cadastro.js
+│   ├── Login.js
+│   ├── Registro.js
+│   └── Historico.js
+├── styles/        # Folhas de estilo
+│   ├── global.css
+│   ├── cadastro.css
+│   ├── login.css
+│   ├── registro.css
+│   └── historico.css
+├── App.js         # Configuração de rotas
+└── index.js       # Ponto de entrada
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🔧 Variáveis de Configuração
+O sistema utiliza as seguintes constantes:
+- **Fator de cálculo de meta**: 35ml por kg de peso
+- **Opções de dose**: 200ml, 350ml, 500ml
+# h2o-frontend
